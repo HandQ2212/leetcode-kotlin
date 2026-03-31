@@ -9,17 +9,14 @@ class Solution {
             }
         }
         if (countZero > 0) {
-            if (countZero == nums.size) return nums
-            else {
-                if (countZero == 1) { 
-                    nums.forEachIndexed { index, i ->
-                        if (nums[index] == 0) nums[index] = multi
-                        else nums[index] = 0
-                    }
-                } else {
-                    nums.forEachIndexed { index, i ->
-                        nums[index] = 0
-                    }
+            if (countZero == 1) {
+                nums.forEachIndexed { index, i ->
+                    if (nums[index] == 0) nums[index] = multi
+                    else nums[index] = 0
+                }
+            } else {
+                nums.forEachIndexed { index, i ->
+                    nums[index] = 0
                 }
             }
         } else {
