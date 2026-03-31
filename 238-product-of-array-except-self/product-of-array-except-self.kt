@@ -1,29 +1,19 @@
 class Solution {
     fun productExceptSelf(nums: IntArray): IntArray {
-        var multi = 1
-        var countZero = 0
-        nums.forEach { num ->
-            if (num != 0) multi *= num
-            else {
-                countZero++
-            }
+        val result = IntArray(nums.size)
+
+        var multiRight = 1
+        for (i in nums.size-1 downTo 0) {
+            result[i] = multiRight
+            multiRight *= nums[i]
         }
-        if (countZero > 0) {
-            if (countZero == 1) {
-                nums.forEachIndexed { index, i ->
-                    if (nums[index] == 0) nums[index] = multi
-                    else nums[index] = 0
-                }
-            } else {
-                nums.forEachIndexed { index, i ->
-                    nums[index] = 0
-                }
-            }
-        } else {
-            nums.forEachIndexed { index, i ->
-                nums[index] = multi/nums[index]
-            }
+
+        var multiLeft = 1
+        for (i in nums.indices) {
+            result[i] *= multiLeft
+            multiLeft *= nums[i]
         }
-        return nums
+        
+        return result
     }
 }
