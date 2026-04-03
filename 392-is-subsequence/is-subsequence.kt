@@ -8,11 +8,7 @@ class Solution {
     fun haveSub(s: String, t: String, sIndex: Int, tIndex: Int): Boolean {
         if (tIndex == t.length || sIndex == s.length) return false
         if (s[sIndex] == t[tIndex]) {
-            if (sIndex == s.length - 1){
-                return true
-            } else {
-                return haveSub(s, t, sIndex+1, tIndex+1)
-            }
+            return if (sIndex == s.length-1) true else haveSub(s, t, sIndex+1, tIndex+1)
         } 
         return haveSub(s, t, sIndex, tIndex+1)
     }
