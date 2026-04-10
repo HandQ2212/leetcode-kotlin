@@ -7,7 +7,7 @@ class Solution {
 
         var maxSum = sum
         for (i in k until nums.size) {
-            sum = sum - (nums[i-k] - nums[i])
+            sum = (sum - nums[i-k]) + nums[i]
             maxSum = max(maxSum, sum)
         }
 
